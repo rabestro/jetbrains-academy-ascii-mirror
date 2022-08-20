@@ -1,6 +1,6 @@
 # ASCII Mirror
 
-The solution of a simple educational project made in a functional style.
+The solution of a simple [educational project](https://hyperskill.org/projects/260) from JetBrains Academy made in a functional style.
 
 ## Objectives 
 - Ask an user for a path to the text file. 
