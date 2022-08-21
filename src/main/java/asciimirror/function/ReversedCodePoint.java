@@ -2,13 +2,15 @@ package asciimirror.function;
 
 import java.util.function.IntUnaryOperator;
 
-public record ReversedCodePoint() implements IntUnaryOperator {
-    private static final String ORIGINAL = "<[({})]>/\\";
-    private static final String REVERSED = ">])}{([<\\/";
+public record ReversedCodePoint(String pairChars) implements IntUnaryOperator {
 
     @Override
     public int applyAsInt(int codePoint) {
-        var index = ORIGINAL.indexOf(codePoint);
-        return index < 0 ? codePoint : REVERSED.charAt(index);
+        var index = pairChars().indexOf(codePoint);
+        if (index < 0) {
+            return codePoint;
+        }
+        var shift = index % 2 == 0 ? 1 : -1;
+        return pairChars().charAt(index + shift);
     }
 }

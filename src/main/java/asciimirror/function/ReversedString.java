@@ -10,7 +10,7 @@ public record ReversedString() implements UnaryOperator<String> {
         return new StringBuilder(line)
                 .reverse()
                 .chars()
-                .map(new ReversedCodePoint())
+                .map(new ReversedCodePoint("<>[](){}/\\"))
                 .mapToObj(Character::toString)
                 .collect(Collectors.joining());
     }
