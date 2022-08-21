@@ -6,6 +6,6 @@ public record MirroredLine() implements UnaryOperator<String> {
 
     @Override
     public String apply(String line) {
-        return line + " | " + line.transform(new ReversedString());
+        return line + " | " + line.transform(new ReversedString(new ReversedCodePoint("<>[](){}/\\")));
     }
 }

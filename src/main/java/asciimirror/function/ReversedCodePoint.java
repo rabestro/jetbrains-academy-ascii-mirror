@@ -13,4 +13,5 @@ public record ReversedCodePoint(String pairChars) implements IntUnaryOperator {
         var shift = index % 2 == 0 ? 1 : -1;
         return pairChars().charAt(index + shift);
     }
+
 }
