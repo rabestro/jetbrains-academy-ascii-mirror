@@ -10,8 +10,9 @@ public class Main {
                 new PicturePath(new Scanner(System.in)),
                 new AdjustPicture(new AdjustLineOperator()).andThen(
                         new MirrorPicture(
-                                new MirrorLine(
-                                        new MirrorCodePoint("<>[](){}/\\"))))
+                                new DuplicateLine(
+                                        new ReverseLine(
+                                                new ReflectCodePoint("<>[](){}/\\")))))
         ).run();
     }
 }

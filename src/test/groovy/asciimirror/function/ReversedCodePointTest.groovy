@@ -5,15 +5,15 @@ import spock.lang.Specification
 import spock.lang.Subject
 import spock.lang.Title
 
-@Title('Reversed CodePoint function')
-@Subject(ReversedCodePoint)
+@Title('Reflect CodePoint function')
+@Subject(ReflectCodePoint)
 @Narrative('Replace the characters that are not horizontally symmetrical with their horizontally-opposite chars')
 class ReversedCodePointTest extends Specification {
     final PAIRED_CHARS = '<>[](){}/\\'
 
-    def 'should not reverse horizontally symmetrical characters'() {
+    def 'should not replace horizontally symmetrical characters'() {
         given: 'function with defined paired characters'
-        def underTest = new ReversedCodePoint(PAIRED_CHARS)
+        def underTest = new ReflectCodePoint(PAIRED_CHARS)
 
         expect: 'the character not in the paired group'
         !PAIRED_CHARS.contains(character)
@@ -28,9 +28,9 @@ class ReversedCodePointTest extends Specification {
         codePoint = character.codePointAt(0)
     }
 
-    def 'should reverse not horizontally symmetrical characters'() {
+    def 'should replace not horizontally symmetrical characters'() {
         given: 'function with defined paired chars'
-        def underTest = new ReversedCodePoint(PAIRED_CHARS)
+        def underTest = new ReflectCodePoint(PAIRED_CHARS)
 
         expect: 'the source character in the paired group'
         PAIRED_CHARS.contains(source)
