@@ -1,16 +1,16 @@
 package asciimirror.function;
 
+import java.util.function.IntUnaryOperator;
 import java.util.function.UnaryOperator;
 import java.util.stream.Collectors;
 
-public record ReversedString() implements UnaryOperator<String> {
-
+public record ReverseLine(IntUnaryOperator codePointMapper) implements UnaryOperator<String> {
     @Override
     public String apply(String line) {
         return new StringBuilder(line)
                 .reverse()
                 .chars()
-                .map(new ReversedCodePoint("<>[](){}/\\"))
+                .map(codePointMapper)
                 .mapToObj(Character::toString)
                 .collect(Collectors.joining());
     }
