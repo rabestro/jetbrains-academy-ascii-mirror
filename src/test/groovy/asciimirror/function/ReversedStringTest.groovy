@@ -22,5 +22,6 @@ class ReversedStringTest extends Specification {
         'a'     | 'a'
         'ab'    | 'ba'
         'hello' | 'olleh'
+        '*  '   | '  *'
     }
 }

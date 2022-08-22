@@ -1,22 +1,17 @@
 package asciimirror;
 
-import asciimirror.function.UserDefinedPath;
-import asciimirror.model.MirroredPicture;
-import asciimirror.model.Picture;
+import asciimirror.function.*;
 
-import java.nio.file.Files;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        var path = new UserDefinedPath(System.in).get();
-
-        try (var lines = Files.lines(path)) {
-            new MirroredPicture(new Picture(lines))
-                    .print();
-
-        } catch (Throwable e) {
-            System.out.println("File not found!");
-        }
-
+        new Application(
+                new PicturePath(new Scanner(System.in)),
+                new AdjustPicture(new AdjustLineOperator()).andThen(
+                        new MirrorPicture(
+                                new MirrorLine(
+                                        new MirrorCodePoint("<>[](){}/\\"))))
+        ).run();
     }
 }
