@@ -8,9 +8,7 @@ import java.nio.file.Path;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
-public record Application(
-        Supplier<Path> pathSupplier,
-        Function<Picture, Picture> operator) implements Runnable {
+public record Application(Supplier<Path> pathSupplier, Function<Picture, Picture> operator) implements Runnable {
 
     @Override
     public void run() {
@@ -26,8 +24,8 @@ public record Application(
     }
 
     private Picture getPicture() throws IOException {
-        var picture = new Picture(Files.readString(pathSupplier().get()));
-        return operator().apply(picture);
+        var content = Files.readString(pathSupplier().get());
+        return operator().apply(new Picture(content));
     }
 
     private void printErrorMessage() {

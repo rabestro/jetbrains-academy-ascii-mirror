@@ -4,7 +4,7 @@ import asciimirror.function.*;
 
 import java.util.Scanner;
 
-public class Main {
+public record Main() {
     public static void main(String[] args) {
         new Application(
                 new PicturePath(new Scanner(System.in)),
