@@ -8,7 +8,7 @@ import spock.lang.Title
 @Title('Reflect CodePoint function')
 @Subject(ReflectCodePoint)
 @Narrative('Replace the characters that are not horizontally symmetrical with their horizontally-opposite chars')
-class ReversedCodePointTest extends Specification {
+class ReflectCodePointTest extends Specification {
     final PAIRED_CHARS = '<>[](){}/\\'
 
     def 'should not replace horizontally symmetrical characters'() {

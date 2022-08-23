@@ -42,3 +42,6 @@ Input the file path:
 > C:\ASCII_Animals\MeowFolder\Cat.txt
 File not found!
 ```
+### Demo
+
+[![asciicast](https://asciinema.org/a/516521.svg)](https://asciinema.org/a/516521)

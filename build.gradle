@@ -26,7 +26,7 @@ dependencies {
 }
 
 // In order to run the application type the command:
-// ./gradlew run -q --console=plain --args="ip_addresses"
+// ./gradlew run -q --console=plain
 
 run {
     standardInput = System.in
