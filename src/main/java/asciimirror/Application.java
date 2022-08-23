@@ -8,6 +8,7 @@ import java.nio.file.Path;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
+@SuppressWarnings("squid:S106")
 public record Application(Supplier<Path> pathSupplier, Function<Picture, Picture> operator) implements Runnable {
 
     @Override
